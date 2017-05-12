@@ -1,1 +1,10 @@
-ReactDOM.render(<h1>Hello!</h1>, document.getElementById('container'));
+function Application() {
+  return(
+      <div>
+        <h1>Hello from React</h1>
+        <p>I was rendered from the Application Component!</p>
+      </div>
+  );
+}
+
+ReactDOM.render(<Application />, document.getElementById('container'));
