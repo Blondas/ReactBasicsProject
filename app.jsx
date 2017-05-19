@@ -22,13 +22,33 @@ let PLAYERS = [
 ];
 
 let StopWatch = React.createClass({
+    getInitialState: function() {
+        return {
+            running: false,
+        };
+    },
+
+    onStart: function() {
+        this.setState({
+            running: true
+        });
+    },
+
+    onStop: function() {
+        this.setState({
+           running: false
+        });
+    },
+
    render: function() {
+        let button = this.state.running ? <button onClick={this.onStop}>Stop</button> : <button onClick={this.onStart}>Start</button>;
+
        return (
            <div className="stopwatch">
                <h2>Stopwatch</h2>
                <div className="stopwatch-time">0</div>
-               <button>Start</button>
-               <button>Reset</button>
+               {button}
+               <button onClick={this.onReset} >Reset</button>
            </div>
        );
    }
