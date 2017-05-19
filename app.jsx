@@ -21,6 +21,20 @@ let PLAYERS = [
     }
 ];
 
+let StopWatch = React.createClass({
+   render: function() {
+       return (
+           <div className="stopwatch">
+               <h2>Stopwatch</h2>
+               <div className="stopwatch-time">0</div>
+               <button>Start</button>
+               <button>Reset</button>
+           </div>
+       );
+   }
+});
+
+///////////////////////////////////
 let AddPlayerForm = React.createClass({
     propTypes: {
       onAdd: React.PropTypes.func.isRequired
@@ -54,6 +68,8 @@ let AddPlayerForm = React.createClass({
     }
 });
 
+
+////////////////////////////////
 function Stats(props) {
   let totalPlayers = props.players.length;
   let totalPloints = props.players.reduce(function(total, player) {
@@ -87,6 +103,7 @@ function Header(props) {
       <div className="header">
           <Stats players={props.players}/>
         <h1>{props.title}</h1>
+          <StopWatch/>
       </div>
   );
 }
